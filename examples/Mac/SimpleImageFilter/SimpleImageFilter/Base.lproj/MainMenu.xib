@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14295.6" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14295.6"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -14,7 +15,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SimpleImageFilter" customModuleProvider="target">
             <connections>
-                <outlet property="renderView" destination="fZG-2a-9yA" id="Krd-ex-k8m"/>
+                <outlet property="renderView" destination="ISQ-NE-fwk" id="uWw-Sn-e2q"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -672,25 +673,23 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="680" height="544"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="680" height="544"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <openGLView fixedFrame="YES" useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fZG-2a-9yA" customClass="RenderView" customModule="GPUImage">
-                        <rect key="frame" x="20" y="44" width="640" height="480"/>
-                    </openGLView>
                     <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pWe-ji-P0m">
                         <rect key="frame" x="18" y="18" width="644" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="2" tickMarkPosition="above" sliderType="linear" id="B1B-Qj-IaN"/>
                         <connections>
-                            <binding destination="Voe-Tx-rLC" name="value" keyPath="filterValue" id="YDB-Ih-hpb">
-                                <dictionary key="options">
-                                    <bool key="NSValidatesImmediately" value="YES"/>
-                                </dictionary>
-                            </binding>
+                            <action selector="sliderChanged:" target="Voe-Tx-rLC" id="UUy-uJ-rSm"/>
                         </connections>
                     </slider>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ISQ-NE-fwk" customClass="RenderView" customModule="GPUImage">
+                        <rect key="frame" x="0.0" y="72" width="680" height="472"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </customView>
                 </subviews>
             </view>
             <point key="canvasLocation" x="373" y="365"/>
